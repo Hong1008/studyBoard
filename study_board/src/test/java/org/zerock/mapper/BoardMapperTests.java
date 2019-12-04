@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -23,10 +24,12 @@ public class BoardMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
 
-	@Test
+	//@Test
 	public void testGetList() {
 
 		mapper.getList().forEach(board -> log.info(board));
+		List<String> list = new ArrayList<>();
+		list.forEach(str -> System.out.println(str));
 
 	}
 
@@ -43,7 +46,7 @@ public class BoardMapperTests {
 		log.info(board);
 	}
 
-	// @Test
+	//@Test
 	public void testInsertSelectKey() {
 
 		BoardVO board = new BoardVO();
@@ -56,11 +59,11 @@ public class BoardMapperTests {
 		log.info(board);
 	}
 
-	//@Test
+	@Test
 	public void testRead() {
 
 		// 존재하는 게시물 번호로 테스트
-		BoardVO board = mapper.read(5L);
+		BoardVO board = mapper.read(1L);
 
 		log.info(board);
 

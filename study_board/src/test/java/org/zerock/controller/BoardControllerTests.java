@@ -39,14 +39,14 @@ public class BoardControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-	@Test
+	//@Test
 	public void testList() throws Exception {
 
 		log.info(
 				mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn().getModelAndView().getModelMap());
 	}
 
-	//@Test
+	@Test
 	public void testRegister() throws Exception {
 
 		String resultPage = mockMvc
