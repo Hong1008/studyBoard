@@ -1,5 +1,9 @@
 package org.zerock.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
@@ -30,13 +35,13 @@ public class BoardController {
 		
 	}
 
-	 @GetMapping("/list")
-	 public void list(Model model) {
-	
-	 log.info("list");
-	 model.addAttribute("list", service.getList());
-	
-	 }
+//	 @GetMapping("/list")
+//	 public void list(Model model) {
+//	
+//	 log.info("list");
+//	 model.addAttribute("list", service.getList());
+//	
+//	 }
 
 //	 @GetMapping("/list")
 //	 public void list(Criteria cri, Model model) {
@@ -46,20 +51,19 @@ public class BoardController {
 //	
 //	 }
 
-//	@GetMapping("/list")
-//	public void list(Criteria cri, Model model) {
-//		log.info("list: " + cri);
-//		model.addAttribute("list", service.getList(cri));
-//		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
-//
-//		int total = service.getTotal(cri);
-//
-//		log.info("total: " + total);
-//
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
-//
-//	}
+	@GetMapping("/list")
+	public void list(Criteria cri, Model model) {
+		log.info("list: " + cri);
+		model.addAttribute("list", service.getList(cri));
+		// model.addAttribute("pageMaker", new PageDTO(cri, 123));
 
+		int total = service.getTotal(cri);
+
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
+	}
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 
@@ -139,3 +143,4 @@ public class BoardController {
 	}
 
 }
+

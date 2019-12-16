@@ -39,7 +39,7 @@ public class BoardControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-	@Test
+	//@Test
 	public void testList() throws Exception {
 
 		log.info(

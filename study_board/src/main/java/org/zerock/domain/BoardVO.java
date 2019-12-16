@@ -3,8 +3,13 @@ package org.zerock.domain;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 public class BoardVO {
 
   private Long bno;
@@ -13,4 +18,6 @@ public class BoardVO {
   private String writer;
   private Date regdate;
   private Date updateDate;
+  
+  
 }

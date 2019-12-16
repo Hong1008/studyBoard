@@ -21,14 +21,14 @@ public class RootConfig {
   public DataSource dataSource() {
     HikariConfig hikariConfig = new HikariConfig();
     hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-    hikariConfig.setJdbcUrl("jdbc:log4jdbc:mysql://ec2-18-220-118-116.us-east-2.compute.amazonaws.com:3306/hong");
+    hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:xe");
 
-    hikariConfig.setUsername("hong");
+    hikariConfig.setUsername("study");
     hikariConfig.setPassword("a1234");
 
     hikariConfig.setMinimumIdle(5);
     // test Query
-    hikariConfig.setConnectionTestQuery("SELECT now() FROM dual");
+    hikariConfig.setConnectionTestQuery("SELECT sysdate FROM dual");
     hikariConfig.setPoolName("springHikariCP");
 
    /* hikariConfig.addDataSourceProperty("dataSource.cachePrepStmts", "true");
