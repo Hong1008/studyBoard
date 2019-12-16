@@ -14,9 +14,9 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+//@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 // Java Config
-// @ContextConfiguration(classes = {org.zerock.config.RootConfig.class} )
+@ContextConfiguration(classes = {org.zerock.config.RootConfig.class} )
 @Log4j
 public class BoardServiceTests {
 
@@ -30,7 +30,7 @@ public class BoardServiceTests {
 		assertNotNull(service);
 	}
 
-	@Test
+	//@Test
 	public void testRegister() {
 
 		BoardVO board = new BoardVO();
@@ -46,8 +46,8 @@ public class BoardServiceTests {
 	@Test
 	public void testGetList() {
 
-		// service.getList().forEach(board -> log.info(board));
-		service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
+		service.getList().forEach(board -> log.info(board));
+		//service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class BoardServiceTests {
 		log.info(service.get(1L));
 	}
 
-	@Test
+	//@Test
 	public void testDelete() {
 
 		// 게시물 번호의 존재 여부를 확인하고 테스트할 것
@@ -64,7 +64,7 @@ public class BoardServiceTests {
 
 	}
 
-	@Test
+	//@Test
 	public void testUpdate() {
 
 		BoardVO board = service.get(1L);

@@ -46,7 +46,7 @@ public class BoardControllerTests {
 				mockMvc.perform(MockMvcRequestBuilders.get("/board/list")).andReturn().getModelAndView().getModelMap());
 	}
 
-	//@Test
+	@Test
 	public void testRegister() throws Exception {
 
 		String resultPage = mockMvc

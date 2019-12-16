@@ -46,7 +46,7 @@ public class DataSourceTests {
   }
 
 
-  //@Test
+  @Test
   public void testConnection() {
     
     

@@ -25,7 +25,6 @@ public class RootConfig {
 
     hikariConfig.setUsername("study");
     hikariConfig.setPassword("a1234");
-
     hikariConfig.setMinimumIdle(5);
     // test Query
     hikariConfig.setConnectionTestQuery("SELECT sysdate FROM dual");

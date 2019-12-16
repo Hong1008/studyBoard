@@ -34,10 +34,13 @@
 
 	<insert id="insert">
 		insert into tbl_board (title,content,writer)
-		values (#{title}, #{content}, #{writer})
+		values (seq_board.nextval, #{title}, #{content}, #{writer})
 	</insert>
 
 	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
 		
 		insert into tbl_board (bno,title,content, writer)
 		values (#{bno},
@@ -51,7 +54,7 @@
 
 
 	<delete id="delete">
-		delete tbl_board where bno = #{bno}
+		delete from tbl_board where bno = #{bno}
 	</delete>
 
 	<update id="update">
