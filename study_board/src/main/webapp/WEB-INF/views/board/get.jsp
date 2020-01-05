@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@include file="../includes/header.jsp"%>
 
 
@@ -47,8 +48,13 @@
         <button data-oper='list' class="btn btn-info">
         <a href="/board/list">List</a></button> --%>
 
+<sec:authentication property="principal" var="pinfo"/>
+<sec:authorize access="isAuthenticated()">
+	<c:if test="${pinfo.username eq board.writer }">
+		<button data-oper='modify' class="btn btn-default">Modify</button>
+	</c:if>
+</sec:authorize>
 
-<button data-oper='modify' class="btn btn-default">Modify</button>
 <button data-oper='list' class="btn btn-info">List</button>
 
 <%-- <form id='operForm' action="/boad/modify" method="get">
